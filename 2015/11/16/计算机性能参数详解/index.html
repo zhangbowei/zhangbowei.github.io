@@ -53,28 +53,25 @@
 
 
 
-<meta name="description" content="看不见摸不着 －》测量 模拟 分析 －》 生产率 利用率 响应特性（数量化的客观指标）代表系统使用价值
-性能评价＋成本分析 ＝ 性价比的定量值
-对 （已经存在或尚在设计优化中）目标系统 的 系统配置、系统负载和性能指标间关系 研究
-意义：    发现瓶颈，优化设计方案
-1.性能分类：    处理能力：计算速度、吞吐率、响应时间／平均响应时间 （计算速度为主要考量）        注意：CPU主频与">
+<meta name="description" content="CPU功能CPU主频:
+外频：计算机系统的基准频率 
+倍频：CPU和系统总线之间相差的倍数。以0.5为一个间隔单位。理论上从1.5一直到无限。（主频＝外频 X 倍频）。若当外频不变时，提高倍频，CPU主频也就越高。
+流水线：属逻辑设计范畴。 长流水线意味着CPU可轻易达到很高的运行频率，同时使级数变多，致使累计出的延迟长。（20/30级流水线累计出的延迟不可忽视，此外还有高功耗和高发热量）e.g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机系统性能评价">
-<meta property="og:url" content="http://zhangbowei.github.io/2015/11/16/计算机性能分析框架/index.html">
+<meta property="og:title" content="计算机性能参数详解">
+<meta property="og:url" content="http://zhangbowei.github.io/2015/11/16/计算机性能参数详解/index.html">
 <meta property="og:site_name" content="Learning">
-<meta property="og:description" content="看不见摸不着 －》测量 模拟 分析 －》 生产率 利用率 响应特性（数量化的客观指标）代表系统使用价值
-性能评价＋成本分析 ＝ 性价比的定量值
-对 （已经存在或尚在设计优化中）目标系统 的 系统配置、系统负载和性能指标间关系 研究
-意义：    发现瓶颈，优化设计方案
-1.性能分类：    处理能力：计算速度、吞吐率、响应时间／平均响应时间 （计算速度为主要考量）        注意：CPU主频与">
-<meta property="og:updated_time" content="2015-11-16T08:02:49.000Z">
+<meta property="og:description" content="CPU功能CPU主频:
+外频：计算机系统的基准频率 
+倍频：CPU和系统总线之间相差的倍数。以0.5为一个间隔单位。理论上从1.5一直到无限。（主频＝外频 X 倍频）。若当外频不变时，提高倍频，CPU主频也就越高。
+流水线：属逻辑设计范畴。 长流水线意味着CPU可轻易达到很高的运行频率，同时使级数变多，致使累计出的延迟长。（20/30级流水线累计出的延迟不可忽视，此外还有高功耗和高发热量）e.g">
+<meta property="og:updated_time" content="2015-11-16T08:07:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算机系统性能评价">
-<meta name="twitter:description" content="看不见摸不着 －》测量 模拟 分析 －》 生产率 利用率 响应特性（数量化的客观指标）代表系统使用价值
-性能评价＋成本分析 ＝ 性价比的定量值
-对 （已经存在或尚在设计优化中）目标系统 的 系统配置、系统负载和性能指标间关系 研究
-意义：    发现瓶颈，优化设计方案
-1.性能分类：    处理能力：计算速度、吞吐率、响应时间／平均响应时间 （计算速度为主要考量）        注意：CPU主频与">
+<meta name="twitter:title" content="计算机性能参数详解">
+<meta name="twitter:description" content="CPU功能CPU主频:
+外频：计算机系统的基准频率 
+倍频：CPU和系统总线之间相差的倍数。以0.5为一个间隔单位。理论上从1.5一直到无限。（主频＝外频 X 倍频）。若当外频不变时，提高倍频，CPU主频也就越高。
+流水线：属逻辑设计范畴。 长流水线意味着CPU可轻易达到很高的运行频率，同时使级数变多，致使累计出的延迟长。（20/30级流水线累计出的延迟不可忽视，此外还有高功耗和高发热量）e.g">
 
 
 
@@ -86,7 +83,7 @@
   };
 </script>
 
-  <title> 计算机系统性能评价 | Learning </title>
+  <title> 计算机性能参数详解 | Learning </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -206,7 +203,7 @@
             
             
               
-                计算机系统性能评价
+                计算机性能参数详解
               
             
           </h1>
@@ -215,7 +212,7 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2015-11-16T16:02:49+08:00" content="2015-11-16">
+            <time itemprop="dateCreated" datetime="2015-11-16T16:06:54+08:00" content="2015-11-16">
               2015-11-16
             </time>
           </span>
@@ -239,15 +236,26 @@
       
 
       
-        <span itemprop="articleBody"><p>看不见摸不着 －》测量 模拟 分析 －》 生产率 利用率 响应特性<br>（数量化的客观指标）代表系统使用价值</p>
-<p>性能评价＋成本分析 ＝ 性价比的定量值</p>
-<p>对 （已经存在或尚在设计优化中）目标系统 的 系统配置、系统负载和性能指标间关系 研究</p>
-<p>意义：<br>    发现瓶颈，优化设计方案</p>
-<p>1.<br>性能分类：<br>    处理能力：计算速度、吞吐率、响应时间／平均响应时间 （计算速度为主要考量）<br>        注意：CPU主频与实际运算能力无直接关系（但很重要），是（CPU流水线＋主频）<br>    可靠性：硬件磨损，软件优化（时间增长）<br>    利用率：硬件、软件、指令利用率等（一段时间内被使用次数／时间，占总次数／时间的百分比）。现状：只使用了30%（采用VM等虚拟化技术提高计算机利用率）<br>    易用性：用户感知度 win unix<br>    功耗及环境要求：特殊环境稳定性</p>
-<p>2.<br>系统性能评价方法：<br>    测量法 模拟法 模型法<br>    模拟法建立仿真模型精确性较高</p>
-<p>3.<br>常用测量方法<br>    时钟频率：反映机器速度，不代表CPU速度，还要看CPU流水线各方面的性能指标<br>    指令执行速度：时钟频率 一二级缓存大小 总线等<br>    此外，还有MIPS，MFLOPS，等效指令速度法 即吉普森混合法，PDR （PDR＝L/R，指令位数除以时间）</p>
-<p>4.<br>基准测试程序<br>    多种 最频繁核心程序</p>
-<p>总之，评测没有统一的标准（Benchmark 基于最优化环境，本质是个应用，并不全面）<br>在多处理器系统中，随着处理器数目的增加，服务器性能往往不能同步线性增加，应该对处理性能的线性能力给以足够关注。</p>
+        <span itemprop="articleBody"><h1 id="CPU功能">CPU功能</h1><p>CPU主频:</p>
+<p>外频：计算机系统的基准频率 </p>
+<p>倍频：CPU和系统总线之间相差的倍数。以0.5为一个间隔单位。理论上从1.5一直到无限。（主频＝外频 X 倍频）。若当外频不变时，提高倍频，CPU主频也就越高。</p>
+<p>流水线：属逻辑设计范畴。 长流水线意味着CPU可轻易达到很高的运行频率，同时使级数变多，致使累计出的延迟长。（20/30级流水线累计出的延迟不可忽视，此外还有高功耗和高发热量）<br>e.g intel长达31级流水线的核心Prescott(波塞冬)核心“高频低能”，3G速度 不如AMD推出的20级流水线”速龙64”系列 低频高效。</p>
+<p>CPU缓存：<br>目的为 使计算机有缓存的高速 内存的容量。<br>影响着CPU性能 因为 CPU的数据交换顺序和CPU与缓存间的带宽引起。<br>多级缓存 则意味着较高的命中率。</p>
+<p>前段总线（FSB）：<br>数据通道（CPU与北桥芯片间的连接 实现CPU与内存、显卡交换数据） 影响CPU访问内存的速度<br>前段总线频率 取决于 CPU和北桥芯片（主桥） （属于系统瓶颈）</p>
+<p>注意：外频与前段总线频率区别：<br>   CPU和北桥芯片间总线的速度，更实质性的表示了CPU和外界数据传输的速度。而外频的概念是建立在数字脉冲信号震荡速度基础之上的，也就是说，100MHz外频特指数字脉冲信号在每秒钟震荡一万万次，它更多的影响了PIC及其他总线的频率。<br>&lt;— more —!&gt;</p>
+<hr>
+<p>#CPU的技术</p>
+<p>CPU扩展指令集：<br>具体运用如MMX(Multi Media Extended)SSE、 SSE2（Streaming-Single instruction multiple data-Extensions 2）、SEE3和AMD的3DNow等扩展指令集（即CPU指令集） 旨在增强CPU的多媒体、图形图像和Internet等能力。</p>
+<p>64位技术：<br>代表着更广寻址空间的64位CPU已经成为主流</p>
+<hr>
+<h1 id="其他影响系统性能的技术">其他影响系统性能的技术</h1><p>双通道内存技术：<br>内存控制和管理技术。<br>解决CPU总线带宽与内存带宽的性价比冲突。<br>具体：通过两个独立 具互补性的内存控制器 实现零延迟协作运行。</p>
+<p>CAS Latency（CL）：<br>内存存取数据所需的延迟时间。</p>
+<p>ECC（内存延迟）：<br>系统进入数据进行存取操作 就绪状态前 等待 内存响应的时间<br>表示： e.g 2-2-2-5 （CL－TRP－TRCD－TRAS）<br>第一位为CAS Latency（最重要）<br>通俗：依照内存本身条件 调节 以至于 “少休，多做”。</p>
+<p>DDR3与DDR2:<br>1.突发长度。2.寻址时序。 3.重置功能。 4.ZQ校准。5.根据温度自动刷新／局部刷新（保证数据不丢失－&gt;经常刷新－&gt;温度变高－&gt;耗电、部件性能下降）。等。<br>最重要区别：内存控制器与DDR3内存模组之间是点对点（P2P）的关系。（减轻了地址/命令/控制与数据总线的负载）<br>目前DDR5.</p>
+<p>显卡容量：显示卡上的内存容量。（由 数据位数（一个周期内能传送的bit数）决定带宽。）<br>显存带宽的计算方法是：运行频率×数据带宽/8<br>e.g 在相同的时钟频率和数据位宽度的情况下，DDR显存 能在时钟的上升沿和下降沿都能传送数据 显存带宽是普通SDRAM的两倍。</p>
+<p>南桥芯片：<br>南桥芯片负责I/O总线之间的通信。（技术一般相对来说比较稳定）。</p>
+<hr>
+<p>电容：<br>基本功能：容纳 释放电荷（充放电）。<br>作用：<br>1.隔直流 2.旁路（去耦）（提供低阻抗通路）。3.耦合（连接两个电路）4.滤波。5.温度补偿。6.储能，释放（e.g 相机闪光灯，加热设备等等）。等。<br>电容作为一种基本的电子元器件，在计算机构成中担任的功能，使得优化的空间还有很多。如电容储能水平，安全稳定的固态电容（相对普通液态铝质电解电容）。</p>
 </span>
       
     </div>
@@ -259,17 +267,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/13/为什么不能拿CPU速度爱比较计算机性能/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2015/11/16/计算机性能分析框架/" rel="next" title="计算机系统性能评价">
+                <i class="fa fa-chevron-left"></i> 计算机系统性能评价
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/16/计算机性能参数详解/" rel="prev" title="计算机性能参数详解">
-                计算机性能参数详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -383,7 +387,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU功能"><span class="nav-number">1.</span> <span class="nav-text">CPU功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他影响系统性能的技术"><span class="nav-number">2.</span> <span class="nav-text">其他影响系统性能的技术</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
