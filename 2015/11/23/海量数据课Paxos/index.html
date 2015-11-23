@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Learn, ThinK" />
+  <meta name="keywords" content="课程｜论文," />
 
 
 
@@ -53,22 +53,28 @@
 
 
 
-<meta name="description" content="为什么不能拿CPU速度爱比较计算机性能
-cpu时钟速率 时钟频率 HZ度量e.g假定比较两个英特尔Haswell 酷睿 i5 的处理器，它们的区别就仅仅在时钟速度上。一个计算速度是3.4GHz ，一个是2.6GHz。在这里，当这两个处理器都以它们的最高速度运行时，3.4GHz 的处理器将会快30%（但首先要基于两个处理器其他部分是相同的。）
-另外，英特尔发布了主频为3.6 GHz的奔腾4芯片在20">
+<meta name="description" content="Paxos Make Simple/Transparent
+1.Paxos 算法流程：
+假设包含2个老板（Client），3个政府官员（Acceptor）。
+老板1（Client1）的议题为“A项目我要中标。”，然后命他的秘书Proposer1去找政府官员（Accepter）。
+Proposer1小姐带着现金同时找到了Acceptor-1~Acceptor-3官员，1与2号官员分别收取了10比特币">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ZhangBowei’s Notes">
-<meta property="og:url" content="http://zhangbowei.github.io/2015/11/13/为什么不能拿CPU速度爱比较计算机性能/index.html">
+<meta property="og:title" content="海量数据课">
+<meta property="og:url" content="http://zhangbowei.github.io/2015/11/23/海量数据课Paxos/index.html">
 <meta property="og:site_name" content="ZhangBowei’s Notes">
-<meta property="og:description" content="为什么不能拿CPU速度爱比较计算机性能
-cpu时钟速率 时钟频率 HZ度量e.g假定比较两个英特尔Haswell 酷睿 i5 的处理器，它们的区别就仅仅在时钟速度上。一个计算速度是3.4GHz ，一个是2.6GHz。在这里，当这两个处理器都以它们的最高速度运行时，3.4GHz 的处理器将会快30%（但首先要基于两个处理器其他部分是相同的。）
-另外，英特尔发布了主频为3.6 GHz的奔腾4芯片在20">
-<meta property="og:updated_time" content="2015-11-13T12:40:10.000Z">
+<meta property="og:description" content="Paxos Make Simple/Transparent
+1.Paxos 算法流程：
+假设包含2个老板（Client），3个政府官员（Acceptor）。
+老板1（Client1）的议题为“A项目我要中标。”，然后命他的秘书Proposer1去找政府官员（Accepter）。
+Proposer1小姐带着现金同时找到了Acceptor-1~Acceptor-3官员，1与2号官员分别收取了10比特币">
+<meta property="og:updated_time" content="2015-11-23T09:28:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZhangBowei’s Notes">
-<meta name="twitter:description" content="为什么不能拿CPU速度爱比较计算机性能
-cpu时钟速率 时钟频率 HZ度量e.g假定比较两个英特尔Haswell 酷睿 i5 的处理器，它们的区别就仅仅在时钟速度上。一个计算速度是3.4GHz ，一个是2.6GHz。在这里，当这两个处理器都以它们的最高速度运行时，3.4GHz 的处理器将会快30%（但首先要基于两个处理器其他部分是相同的。）
-另外，英特尔发布了主频为3.6 GHz的奔腾4芯片在20">
+<meta name="twitter:title" content="海量数据课">
+<meta name="twitter:description" content="Paxos Make Simple/Transparent
+1.Paxos 算法流程：
+假设包含2个老板（Client），3个政府官员（Acceptor）。
+老板1（Client1）的议题为“A项目我要中标。”，然后命他的秘书Proposer1去找政府官员（Accepter）。
+Proposer1小姐带着现金同时找到了Acceptor-1~Acceptor-3官员，1与2号官员分别收取了10比特币">
 
 
 
@@ -80,7 +86,7 @@ cpu时钟速率 时钟频率 HZ度量e.g假定比较两个英特尔Haswell 酷�
   };
 </script>
 
-  <title>  | ZhangBowei’s Notes </title>
+  <title> 海量数据课 | ZhangBowei’s Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -200,7 +206,7 @@ cpu时钟速率 时钟频率 HZ度量e.g假定比较两个英特尔Haswell 酷�
             
             
               
-                
+                海量数据课
               
             
           </h1>
@@ -209,8 +215,8 @@ cpu时钟速率 时钟频率 HZ度量e.g假定比较两个英特尔Haswell 酷�
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2015-11-13T20:40:10+08:00" content="2015-11-13">
-              2015-11-13
+            <time itemprop="dateCreated" datetime="2015-11-23T17:25:54+08:00" content="2015-11-23">
+              2015-11-23
             </time>
           </span>
 
@@ -233,37 +239,52 @@ cpu时钟速率 时钟频率 HZ度量e.g假定比较两个英特尔Haswell 酷�
       
 
       
-        <span itemprop="articleBody"><h1 id="为什么不能拿CPU速度爱比较计算机性能">为什么不能拿CPU速度爱比较计算机性能</h1><hr>
-<p>cpu时钟速率 时钟频率 HZ度量<br>e.g<br>假定比较两个英特尔Haswell 酷睿 i5 的处理器，它们的区别就仅仅在时钟速度上。一个计算速度是3.4GHz ，一个是2.6GHz。在这里，当这两个处理器都以它们的最高速度运行时，3.4GHz 的处理器将会快30%（但首先要基于两个处理器其他部分是相同的。）</p>
-<p>另外，英特尔发布了主频为3.6 GHz的奔腾4芯片在2006年。现在是2013年的年底，厂家公布的最新、最快的英特尔Haswell的酷睿i7 CPU的主频是3.9 GHz。而这并不代表CPU性能在七年只增长了这么点。</p>
-<p><strong>总结：</strong></p>
-<blockquote>
-<p>因此，要同时考虑CPU的时钟周期数和每个时钟周期的工作量。同时，在其他因素不变的情况下，时钟周期少并且单个周期完成的工作多 比 时钟周期多但单个周期完成的工作少的CPU 需要的电能少，产热少。</p>
-<p>降温 （过热条件下，CPU无法保持以最高速率运行）</p>
-<p>硬盘访问是一个瓶颈，当下将传统硬盘替换成固态硬盘SSD，或者更换其他硬件 例如一块强劲点的显卡也许更能提升计算机整体性能</p>
-</blockquote>
+        <span itemprop="articleBody"><blockquote>
+<h1 id="Paxos_Make_Simple/Transparent">Paxos Make Simple/Transparent</h1></blockquote>
+<h2 id="1-Paxos_算法流程：">1.Paxos 算法流程：</h2><ol>
+<li>假设包含2个老板（Client），3个政府官员（Acceptor）。</li>
+<li>老板1（Client1）的议题为“A项目我要中标。”，然后命他的秘书Proposer1去找政府官员（Accepter）。</li>
+<li>Proposer1小姐带着现金同时找到了Acceptor-1~Acceptor-3官员，1与2号官员分别收取了10比特币，找到第3号官员时，没想到遭到了3号官员的鄙视，3号官员告诉她，Proposer-2给了11比特币。不过没关系，Proposer1已经得到了1,2两个官员的认可，形成了多数派(如果没有形成多数派，Proposer1会去银行提款在来找官员们给每人20比特币，这个过程一直重复每次+10比特币，直到多数派的形成)，满意的找老板复命去了，但是此时Proposer2保镖找到了1,2号官员，分别给了他们11比特币，1,2号官员的态度立刻转变，都说Proposer2的老板懂事，这下子Proposer2放心了，搞定了3个官员，找老板复命去了，当然这个过程是第一阶段提交，只是官员们初步接受贿赂而已。故事中的比特币是编号，议题是value。</li>
+<li>现在进入第二阶段提交，现在proposer1小姐使用分身术(多线程并发)分了3个自己分别去找3位官员，最先找到了1号官员签合同，遭到了1号官员的鄙视，1号官员告诉他proposer2先生给了他11比特币，因为上一条规则的性质proposer1小姐知道proposer2第一阶段在她之后又形成了多数派(至少有2位官员的赃款被更新了);此时她赶紧去提款准备重新贿赂这3个官员(重新进入第一阶段)，每人20比特币。刚给1号官员20比特币， 1号官员很高兴初步接受了议题，还没来得及见到2,3号官员的时候，在这时proposer2先生也使用分身术分别找3位官员(注意这里是proposer2的第二阶段)，被第1号官员拒绝了告诉他收到了20比特币，第2,3号官员顺利签了合同，这时2，3号官员记录client2老板用了11比特币中标，因为形成了多数派，所以最终接受了Client2老板中标这个议题，对于proposer2先生已经出色的完成了工作。</li>
+<li>proposer-1小姐找到了2号官员，官员告诉她合同已经签了，将合同给她看，proposer-1小姐是一个没有什么职业操守的聪明人，觉得跟Client1老板混没什么前途，所以将自己的议题修改为“Client2老板中标”，并且给了2号官员20比特币，这样形成了一个多数派。顺利的再次进入第二阶段。由于此时没有人竞争了，顺利的找3位官员签合同，3位官员看到议题与上次一次的合同是一致的，所以最终接受了，形成了多数派，proposer-1小姐跳槽到Client2老板的公司去了。<br>以上Paxos的一致性得以保证。</li>
+</ol>
+<h3 id="注：关于提议ID的声称算法如下：">注：关于提议ID的声称算法如下：</h3><p>假设有3个proposer P1、P2、P3，开始m=0,编号分别为0，1，2。</p>
+<ol>
+<li>P1提交的时候发现了P2已经提交，P2编号为1 &gt; P1的0，因此P1重新计算编号：new P1 = 1*3+0 = 4（此时，P1编号相当于上述例子的20比特币；P2编号相当于11比特币。）</li>
+<li>P3以编号2提交，发现小于P1的4，因此P3重新编号：new P3 = 1*3+2 = 5。</li>
+</ol>
+<h3 id="链接：">链接：</h3><p><a href="http://www.cnblogs.com/endsock/p/3480093.html" target="_blank" rel="external">Paxos算法细节详解(一)–通过现实世界描述算法</a></p>
+<h2 id="2-State_Machine_Replication">2.State Machine Replication</h2><p>1.fault tolerance技术.在这个模型中，程序（比如一个apache server）被视为 deterministic state machine，意思就是给程序一定顺序的 input requests，程序执行后就会到达一定的状态（准确的说是数据结果），而replication就是在多个 nodes 中保持相同的state。当然这要求我们的SMR模型可以容忍来自node和network的failures，否则仅是理论上做到.</p>
+<p>2.给予每个replicas的input request sequence一致，在deterministic execution的前提下，这些replicas就会 reach the same exact state.</p>
+<p>3.DMT技术。如果给予每个replica nodes相同的input，在DMT的作用下，可以使得这些input的线程调度在每个nodes上都是一样的，这样就保证了即使在每个nodes上是多线程执行input，这些nodes最终的状态也是一致的，因为它们的线程调度是一致的。（归功于一个logical time在schedule它们，这个time是根据代码运行的先后来的，overhead不高，约为12.7%。）</p>
+<p>4.checkpoint mechanism。这需要使用CRIU来实现。</p>
+<h3 id="问题">问题</h3><p>问题一：什么情况下会令secondary节点忽略来自leader的提案？ </p>
+<p>问题二：为什么一个提案要获得大多数认可才能提交？</p>
+<h3 id="链接:">链接:</h3><p><a href="http://m.blog.csdn.net/blog/BlueCloudMatrix/44239983" target="_blank" rel="external">State Machine Replication 技术 和 PAXOS 算法</a></p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/课程｜论文/" rel="tag">#课程｜论文</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/12/计算机系统性能论文/" rel="next" title="排队论">
-                <i class="fa fa-chevron-left"></i> 排队论
+              <a href="/2015/11/16/计算机性能参数详解/" rel="next" title="计算机性能参数详解">
+                <i class="fa fa-chevron-left"></i> 计算机性能参数详解
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/16/计算机性能分析框架/" rel="prev" title="计算机系统性能评价">
-                计算机系统性能评价 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -377,7 +398,7 @@ cpu时钟速率 时钟频率 HZ度量e.g假定比较两个英特尔Haswell 酷�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么不能拿CPU速度爱比较计算机性能"><span class="nav-number">1.</span> <span class="nav-text">为什么不能拿CPU速度爱比较计算机性能</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Paxos_Make_Simple/Transparent"><span class="nav-number">1.</span> <span class="nav-text">Paxos Make Simple/Transparent</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Paxos_算法流程："><span class="nav-number">1.1.</span> <span class="nav-text">1.Paxos 算法流程：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注：关于提议ID的声称算法如下："><span class="nav-number">1.1.1.</span> <span class="nav-text">注：关于提议ID的声称算法如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接："><span class="nav-number">1.1.2.</span> <span class="nav-text">链接：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-State_Machine_Replication"><span class="nav-number">1.2.</span> <span class="nav-text">2.State Machine Replication</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接:"><span class="nav-number">1.2.2.</span> <span class="nav-text">链接:</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
